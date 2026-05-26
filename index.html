@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitWise+ - Split Smartly, Live Peacefully</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen" class="screen active">
+        <div class="splash-container">
+            <div class="splash-logo">
+                <i class="fas fa-wallet"></i>
+            </div>
+            <h1 class="splash-title">SplitWise+</h1>
+            <p class="splash-tagline">Split smartly, live peacefully</p>
+            <div class="loader">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN SCREEN -->
+    <div id="login-screen" class="screen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your account</p>
+            </div>
+
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#forgot-pwd">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Sign In</button>
+            </form>
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-auth">
+                <button type="button" class="btn btn-social">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button type="button" class="btn btn-social">
+                    <i class="fab fa-apple"></i>
+                    <span>Apple</span>
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="#signup" onclick="showScreen('signup-screen')">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGNUP SCREEN -->
+    <div id="signup-screen" class="screen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2>Create Account</h2>
+                <p>Join SplitWise+ today</p>
+            </div>
+
+            <form class="auth-form">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullname" placeholder="John Doe" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="signup-email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="signup-password" placeholder="Create a strong password" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-check"></i>
+                        <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-large">Create Account</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="#login" onclick="showScreen('login-screen')">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOME DASHBOARD -->
+    <div id="home-screen" class="screen">
+        <div class="app-container">
+            <!-- Header -->
+            <div class="dashboard-header">
+                <div class="header-top">
+                    <h1>Hello, Prakriti!</h1>
+                    <button class="btn-icon" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Balance Cards -->
+            <div class="balance-section">
+                <div class="balance-card balance-owed">
+                    <div class="balance-label">You Owe</div>
+                    <div class="balance-amount">₹2,450</div>
+                    <div class="balance-count">3 people</div>
+                </div>
+                <div class="balance-card balance-receive">
+                    <div class="balance-label">You'll Receive</div>
+                    <div class="balance-amount">₹5,200</div>
+                    <div class="balance-count">5 people</div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button class="quick-action-btn" onclick="showScreen('add-expense-screen')">
+                    <i class="fas fa-plus"></i>
+                    <span>Add Expense</span>
+                </button>
+                <button class="quick-action-btn" onclick="showScreen('groups-screen')">
+                    <i class="fas fa-users"></i>
+                    <span>Create Group</span>
+                </button>
+                <button class="quick-action-btn" onclick="showScreen('settle-payment-screen')">
+                    <i class="fas fa-handshake"></i>
+                    <span>Settle Up</span>
+                </button>
+            </div>
+
+            <!-- Monthly Summary -->
+            <div class="section">
+                <h3 class="section-title">Monthly Summary</h3>
+                <div class="spending-summary">
+                    <div class="summary-stat">
+                        <div class="stat-label">Total Spent</div>
+                        <div class="stat-value">₹8,650</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="stat-label">Your Share</div>
+                        <div class="stat-value">₹6,200</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Settlements -->
+            <div class="section">
+                <div class="section-header">
+                    <h3 class="section-title">Pending Settlements</h3>
+                    <a href="#" class="see-all">See all</a>
+                </div>
+                <div class="settlement-cards">
+                    <div class="settlement-card">
+                        <div class="settlement-avatar">H</div>
+                        <div class="settlement-info">
+                            <div class="settlement-name">Harini</div>
+                            <div class="settlement-text">You owe ₹450</div>
+                        </div>
+                        <button class="btn btn-small">Pay</button>
+                    </div>
+                    <div class="settlement-card">
+                        <div class="settlement-avatar">S</div>
+                        <div class="settlement-info">
+                            <div class="settlement-name">Savi</div>
+                            <div class="settlement-text">Owes you ₹320</div>
+                        </div>
+                        <button class="btn btn-small btn-secondary">Request</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="section">
+                <div class="section-header">
+                    <h3 class="section-title">Recent Activity</h3>
+                    <a href="#" class="see-all">View all</a>
+                </div>
+                <div class="activity-timeline">
+                    <div class="activity-item">
+                        <div class="activity-icon added">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">Dinner at Marina Bay</div>
+                            <div class="activity-meta">Added 2 hours ago</div>
+                        </div>
+                        <div class="activity-amount">₹1,200</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon settled">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">Settled with Priya</div>
+                            <div class="activity-meta">Yesterday</div>
+                        </div>
+                        <div class="activity-amount">₹800</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon added">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">Movie tickets</div>
+                            <div class="activity-meta">3 days ago</div>
+                        </div>
+                        <div class="activity-amount">₹500</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FRIENDS SCREEN -->
+    <div id="friends-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <h2>Friends</h2>
+                <button class="btn-icon" onclick="showScreen('add-friend-screen')">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search friends...">
+            </div>
+
+            <!-- Pending Requests -->
+            <div class="section">
+                <h3 class="section-title">Pending Requests</h3>
+                <div class="friend-cards">
+                    <div class="friend-card request">
+                        <div class="friend-avatar online">A</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Arjun</div>
+                            <div class="friend-status">Friend request pending</div>
+                        </div>
+                        <button class="btn btn-small">Accept</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friends List -->
+            <div class="section">
+                <h3 class="section-title">Friends</h3>
+                <div class="friend-cards">
+                    <div class="friend-card">
+                        <div class="friend-avatar online">H</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Harini</div>
+                            <div class="friend-balance">You owe ₹450</div>
+                        </div>
+                        <div class="friend-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="friend-card">
+                        <div class="friend-avatar online">S</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Savi</div>
+                            <div class="friend-balance">Owes you ₹320</div>
+                        </div>
+                        <div class="friend-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="friend-card">
+                        <div class="friend-avatar">P</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Priya</div>
+                            <div class="friend-balance">All settled up</div>
+                        </div>
+                        <div class="friend-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div class="friend-card">
+                        <div class="friend-avatar online">R</div>
+                        <div class="friend-info">
+                            <div class="friend-name">Rahul</div>
+                            <div class="friend-balance">You owe ₹1,200</div>
+                        </div>
+                        <div class="friend-action">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <!-- GROUPS SCREEN -->
+    <div id="groups-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <h2>Groups</h2>
+                <button class="btn-icon" onclick="showScreen('create-group-screen')">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search groups...">
+            </div>
+
+            <!-- Group Categories -->
+            <div class="categories-scroll">
+                <button class="category-chip active">All</button>
+                <button class="category-chip">Travel</button>
+                <button class="category-chip">Family</button>
+                <button class="category-chip">Office</button>
+                <button class="category-chip">Friends</button>
+            </div>
+
+            <!-- Groups List -->
+            <div class="section">
+                <div class="group-cards">
+                    <div class="group-card" onclick="showScreen('group-details-screen')">
+                        <div class="group-header">
+                            <div class="group-avatar travel">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="group-name-badge">Travel</div>
+                        </div>
+                        <h3 class="group-name">Goa Trip 2024</h3>
+                        <div class="group-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>5 members</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupiah"></i>
+                                <span>₹12,500</span>
+                            </div>
+                        </div>
+                        <div class="group-members">
+                            <div class="member-avatar">H</div>
+                            <div class="member-avatar">S</div>
+                            <div class="member-avatar">P</div>
+                            <div class="member-avatar">+2</div>
+                        </div>
+                    </div>
+
+                    <div class="group-card" onclick="showScreen('group-details-screen')">
+                        <div class="group-header">
+                            <div class="group-avatar family">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="group-name-badge">Family</div>
+                        </div>
+                        <h3 class="group-name">Home Rent</h3>
+                        <div class="group-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>3 members</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupiah"></i>
+                                <span>₹8,200</span>
+                            </div>
+                        </div>
+                        <div class="group-members">
+                            <div class="member-avatar">M</div>
+                            <div class="member-avatar">D</div>
+                            <div class="member-avatar">P</div>
+                        </div>
+                    </div>
+
+                    <div class="group-card" onclick="showScreen('group-details-screen')">
+                        <div class="group-header">
+                            <div class="group-avatar office">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="group-name-badge">Office</div>
+                        </div>
+                        <h3 class="group-name">Team Lunches</h3>
+                        <div class="group-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>8 members</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-rupiah"></i>
+                                <span>₹5,600</span>
+                            </div>
+                        </div>
+                        <div class="group-members">
+                            <div class="member-avatar">A</div>
+                            <div class="member-avatar">R</div>
+                            <div class="member-avatar">V</div>
+                            <div class="member-avatar">+5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <!-- GROUP DETAILS SCREEN -->
+    <div id="group-details-screen" class="screen">
+        <div class="app-container">
+            <!-- Group Header -->
+            <div class="group-details-header">
+                <button class="btn-icon" onclick="showScreen('groups-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Goa Trip 2024</h2>
+                <button class="btn-icon">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+
+            <!-- Balance Section -->
+            <div class="group-balance-section">
+                <div class="balance-card-group">
+                    <div class="balance-group-stat">
+                        <div class="label">Total Spent</div>
+                        <div class="amount">₹12,500</div>
+                    </div>
+                    <div class="balance-group-stat">
+                        <div class="label">Your Share</div>
+                        <div class="amount">₹3,200</div>
+                    </div>
+                </div>
+                <div class="settlement-status">
+                    <span class="badge badge-info">You owe ₹450</span>
+                </div>
+            </div>
+
+            <!-- Members List -->
+            <div class="section">
+                <h3 class="section-title">Members (5)</h3>
+                <div class="members-list">
+                    <div class="member-item">
+                        <div class="member-avatar-large">H</div>
+                        <div class="member-details">
+                            <div class="member-name">Harini</div>
+                            <div class="member-balance">Paid ₹4,200</div>
+                        </div>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-avatar-large">S</div>
+                        <div class="member-details">
+                            <div class="member-name">Savi</div>
+                            <div class="member-balance">Paid ₹2,300</div>
+                        </div>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-avatar-large">P</div>
+                        <div class="member-details">
+                            <div class="member-name">Priya</div>
+                            <div class="member-balance">Paid ₹3,100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expenses Timeline -->
+            <div class="section">
+                <div class="section-header">
+                    <h3 class="section-title">Expenses</h3>
+                    <a href="#" class="see-all">View all</a>
+                </div>
+                <div class="expense-list">
+                    <div class="expense-item">
+                        <div class="expense-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="expense-details">
+                            <div class="expense-name">Dinner at Beach Club</div>
+                            <div class="expense-meta">Paid by Harini • 2 days ago</div>
+                        </div>
+                        <div class="expense-amount">₹3,200</div>
+                    </div>
+                    <div class="expense-item">
+                        <div class="expense-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <div class="expense-details">
+                            <div class="expense-name">Hotel Accommodation</div>
+                            <div class="expense-meta">Paid by Priya • 3 days ago</div>
+                        </div>
+                        <div class="expense-amount">₹5,600</div>
+                    </div>
+                    <div class="expense-item">
+                        <div class="expense-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="expense-details">
+                            <div class="expense-name">Taxi & Transport</div>
+                            <div class="expense-meta">Paid by Savi • 4 days ago</div>
+                        </div>
+                        <div class="expense-amount">₹2,300</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <!-- ADD EXPENSE SCREEN -->
+    <div id="add-expense-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <button class="btn-icon" onclick="showScreen('home-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Add Expense</h2>
+                <div></div>
+            </div>
+
+            <form class="expense-form">
+                <!-- Expense Title -->
+                <div class="form-group">
+                    <label for="expense-title">Expense Title</label>
+                    <input type="text" id="expense-title" placeholder="e.g., Dinner, Movie tickets" required>
+                </div>
+
+                <!-- Amount -->
+                <div class="form-group">
+                    <label for="expense-amount">Amount</label>
+                    <div class="input-wrapper currency-input">
+                        <span class="currency">₹</span>
+                        <input type="number" id="expense-amount" placeholder="0.00" required>
+                    </div>
+                </div>
+
+                <!-- Date & Time -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expense-date">Date</label>
+                        <input type="date" id="expense-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expense-time">Time</label>
+                        <input type="time" id="expense-time" required>
+                    </div>
+                </div>
+
+                <!-- Category -->
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option>Select category</option>
+                        <option>Food & Dining</option>
+                        <option>Entertainment</option>
+                        <option>Shopping</option>
+                        <option>Travel</option>
+                        <option>Utilities</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <!-- Paid By -->
+                <div class="form-group">
+                    <label>Paid By</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="paid-by" value="me" checked>
+                            <span>Me (Prakriti)</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="paid-by" value="other">
+                            <span>Someone else</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Group Selection -->
+                <div class="form-group">
+                    <label for="group">Group/Friends</label>
+                    <select id="group" required>
+                        <option>Select group or friends</option>
+                        <option>Goa Trip 2024</option>
+                        <option>Home Rent</option>
+                        <option>Team Lunches</option>
+                        <option>Just with Harini</option>
+                        <option>Just with Savi</option>
+                    </select>
+                </div>
+
+                <!-- Members Selection -->
+                <div class="form-group">
+                    <label>Split Between</label>
+                    <div class="members-selection">
+                        <label class="checkbox-member">
+                            <input type="checkbox" checked>
+                            <span class="member-chip">You</span>
+                        </label>
+                        <label class="checkbox-member">
+                            <input type="checkbox" checked>
+                            <span class="member-chip">Harini</span>
+                        </label>
+                        <label class="checkbox-member">
+                            <input type="checkbox">
+                            <span class="member-chip">Savi</span>
+                        </label>
+                        <label class="checkbox-member">
+                            <input type="checkbox">
+                            <span class="member-chip">Priya</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Split Type -->
+                <div class="form-group">
+                    <label>Split Type</label>
+                    <div class="split-type-tabs">
+                        <button type="button" class="split-tab active" data-split="equal">Equal</button>
+                        <button type="button" class="split-tab" data-split="exact">Exact</button>
+                        <button type="button" class="split-tab" data-split="percentage">Percentage</button>
+                        <button type="button" class="split-tab" data-split="custom">Custom</button>
+                    </div>
+                </div>
+
+                <!-- Split Details -->
+                <div class="form-group" id="split-details">
+                    <label>Split Details</label>
+                    <div class="split-list">
+                        <div class="split-item">
+                            <span>You</span>
+                            <span>₹250.00</span>
+                        </div>
+                        <div class="split-item">
+                            <span>Harini</span>
+                            <span>₹250.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Receipt Upload -->
+                <div class="form-group">
+                    <label>Receipt (Optional)</label>
+                    <div class="upload-area" onclick="document.getElementById('receipt-input').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload or drag & drop</p>
+                        <small>PNG, JPG, PDF up to 10MB</small>
+                        <input type="file" id="receipt-input" accept="image/*,application/pdf" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" placeholder="Add any additional details..." rows="3"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-large">Add Expense</button>
+            </form>
+
+            <div style="height: 20px;"></div>
+        </div>
+    </div>
+
+    <!-- ANALYTICS SCREEN -->
+    <div id="analytics-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <h2>Analytics</h2>
+                <button class="btn-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </button>
+            </div>
+
+            <!-- Period Selector -->
+            <div class="period-selector">
+                <button class="period-btn active">This Month</button>
+                <button class="period-btn">Last Month</button>
+                <button class="period-btn">3 Months</button>
+                <button class="period-btn">Year</button>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="analytics-summary">
+                <div class="analytics-card">
+                    <div class="card-label">Total Spent</div>
+                    <div class="card-amount">₹8,650</div>
+                    <div class="card-change positive">
+                        <i class="fas fa-arrow-down"></i> 12% less than last month
+                    </div>
+                </div>
+                <div class="analytics-card">
+                    <div class="card-label">To Settle</div>
+                    <div class="card-amount">₹2,450</div>
+                    <div class="card-description">With 3 people</div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="section">
+                <h3 class="section-title">Spending by Category</h3>
+                <div class="chart-container">
+                    <canvas id="category-chart"></canvas>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #a78bfa;"></div>
+                        <span>Food & Dining</span>
+                        <span class="legend-value">₹3,200</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #60a5fa;"></div>
+                        <span>Entertainment</span>
+                        <span class="legend-value">₹2,100</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #34d399;"></div>
+                        <span>Travel</span>
+                        <span class="legend-value">₹1,800</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #fbbf24;"></div>
+                        <span>Shopping</span>
+                        <span class="legend-value">₹1,550</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spending by Friend -->
+            <div class="section">
+                <h3 class="section-title">Spending by Friend</h3>
+                <div class="spending-list">
+                    <div class="spending-item">
+                        <div class="spending-header">
+                            <span>Harini</span>
+                            <span>₹2,450</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    <div class="spending-item">
+                        <div class="spending-header">
+                            <span>Savi</span>
+                            <span>₹1,800</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%;"></div>
+                        </div>
+                    </div>
+                    <div class="spending-item">
+                        <div class="spending-header">
+                            <span>Priya</span>
+                            <span>₹1,200</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 22%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Savings Trend -->
+            <div class="section">
+                <h3 class="section-title">Monthly Trend</h3>
+                <div class="chart-container">
+                    <canvas id="trend-chart"></canvas>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <!-- PROFILE SCREEN -->
+    <div id="profile-screen" class="screen">
+        <div class="app-container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar-large">P</div>
+                <h2>Prakriti Dwivedi</h2>
+                <p>prakriti@example.com</p>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-count">12</div>
+                        <div class="stat-label">Friends</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-count">3</div>
+                        <div class="stat-label">Groups</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-count">₹2.4K</div>
+                        <div class="stat-label">Balance</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Sections -->
+            <div class="settings-section">
+                <h3 class="settings-title">Preferences</h3>
+                <div class="settings-items">
+                    <div class="settings-item" onclick="toggleTheme()">
+                        <div class="setting-label">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark Mode</span>
+                        </div>
+                        <div class="toggle-switch">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-globe"></i>
+                            <span>Language</span>
+                        </div>
+                        <select class="select-inline">
+                            <option>English</option>
+                            <option>Hindi</option>
+                            <option>Spanish</option>
+                        </select>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-rupiah"></i>
+                            <span>Currency</span>
+                        </div>
+                        <select class="select-inline">
+                            <option>₹ Indian Rupee</option>
+                            <option>$ US Dollar</option>
+                            <option>€ Euro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="settings-section">
+                <h3 class="settings-title">Account</h3>
+                <div class="settings-items">
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-lock"></i>
+                            <span>Change Password</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Privacy & Security</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Management -->
+            <div class="settings-section">
+                <h3 class="settings-title">Data & Storage</h3>
+                <div class="settings-items">
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-download"></i>
+                            <span>Export Data</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-cloud"></i>
+                            <span>Backup & Restore</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support -->
+            <div class="settings-section">
+                <h3 class="settings-title">Support</h3>
+                <div class="settings-items">
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Help & FAQ</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Us</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item">
+                        <div class="setting-label">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Terms & Privacy</span>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logout -->
+            <button class="btn btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+
+            <div style="height: 30px;"></div>
+        </div>
+    </div>
+    <div id="settle-payment-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <button class="btn-icon" onclick="showScreen('home-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Settle Payment</h2>
+                <div></div>
+            </div>
+
+            <!-- Settlement List -->
+            <div class="section">
+                <h3 class="section-title">Settlements Due</h3>
+                <div class="settlement-list">
+                    <div class="settlement-card-large">
+                        <div class="settlement-header">
+                            <div class="settlement-avatar-large">H</div>
+                            <div class="settlement-info-large">
+                                <div class="settlement-person">Harini</div>
+                                <div class="settlement-detail">You owe</div>
+                            </div>
+                            <div class="settlement-amount-large">₹450</div>
+                        </div>
+                        <div class="settlement-actions">
+                            <button class="btn btn-small" onclick="showScreen('payment-options-screen')">Pay Now</button>
+                            <button class="btn btn-small btn-secondary">Request Later</button>
+                        </div>
+                    </div>
+
+                    <div class="settlement-card-large">
+                        <div class="settlement-header">
+                            <div class="settlement-avatar-large">S</div>
+                            <div class="settlement-info-large">
+                                <div class="settlement-person">Savi</div>
+                                <div class="settlement-detail">Owes you</div>
+                            </div>
+                            <div class="settlement-amount-large">₹320</div>
+                        </div>
+                        <div class="settlement-actions">
+                            <button class="btn btn-small btn-secondary">Request Payment</button>
+                            <button class="btn btn-small">Mark as Paid</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment History -->
+            <div class="section">
+                <h3 class="section-title">Payment History</h3>
+                <div class="payment-history">
+                    <div class="payment-item">
+                        <div class="payment-icon settled">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="payment-details">
+                            <div class="payment-name">Paid Priya</div>
+                            <div class="payment-date">5 days ago</div>
+                        </div>
+                        <div class="payment-amount">₹800</div>
+                    </div>
+                    <div class="payment-item">
+                        <div class="payment-icon settled">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="payment-details">
+                            <div class="payment-name">Received from Rahul</div>
+                            <div class="payment-date">1 week ago</div>
+                        </div>
+                        <div class="payment-amount">₹1,200</div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 100px;"></div>
+        </div>
+    </div>
+
+    <!-- PAYMENT OPTIONS SCREEN -->
+    <div id="payment-options-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <button class="btn-icon" onclick="showScreen('settle-payment-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Payment Method</h2>
+                <div></div>
+            </div>
+
+            <!-- Amount Display -->
+            <div class="payment-amount-display">
+                <h3>Pay to Harini</h3>
+                <div class="amount">₹450</div>
+                <p>Dinner at Marina Bay</p>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="section">
+                <h3 class="section-title">Payment Methods</h3>
+                <div class="payment-methods">
+                    <label class="payment-method">
+                        <input type="radio" name="payment-method" checked>
+                        <div class="payment-option">
+                            <div class="payment-icon-method">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="payment-option-info">
+                                <div class="method-name">Wallet</div>
+                                <div class="method-detail">Instant transfer</div>
+                            </div>
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </label>
+
+                    <label class="payment-method">
+                        <input type="radio" name="payment-method">
+                        <div class="payment-option">
+                            <div class="payment-icon-method">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="payment-option-info">
+                                <div class="method-name">UPI/PhonePe</div>
+                                <div class="method-detail">Send UPI request</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="payment-method">
+                        <input type="radio" name="payment-method">
+                        <div class="payment-option">
+                            <div class="payment-icon-method">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="payment-option-info">
+                                <div class="method-name">Bank Transfer</div>
+                                <div class="method-detail">Direct to bank account</div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="payment-method">
+                        <input type="radio" name="payment-method">
+                        <div class="payment-option">
+                            <div class="payment-icon-method">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <div class="payment-option-info">
+                                <div class="method-name">QR Code</div>
+                                <div class="method-detail">Share QR for payment</div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QR Code Display -->
+            <div class="section" id="qr-section" style="display: none;">
+                <h3 class="section-title">QR Code</h3>
+                <div class="qr-container">
+                    <div class="qr-code">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <p>Scan to receive payment</p>
+                    <button class="btn btn-small">Share QR</button>
+                </div>
+            </div>
+
+            <!-- Confirm Button -->
+            <button class="btn btn-primary btn-large">Confirm Payment</button>
+
+            <div style="height: 20px;"></div>
+        </div>
+    </div>
+
+    <!-- AI ASSISTANT SCREEN -->
+    <div id="ai-assistant-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <button class="btn-icon" onclick="showScreen('home-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>AI Expense Assistant</h2>
+                <div></div>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-messages">
+                    <div class="chat-message ai-message">
+                        <div class="message-bubble">
+                            <p>Hi! I'm your AI expense assistant. Just tell me about your expense naturally, and I'll fill in the details for you.</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-message user-message">
+                        <div class="message-bubble">
+                            <p>Paid ₹1500 dinner with Harini and Savi</p>
+                        </div>
+                    </div>
+
+                    <div class="chat-message ai-message">
+                        <div class="message-bubble">
+                            <p>Great! I've filled in the expense details:</p>
+                            <div class="ai-parsed-expense">
+                                <div class="parsed-item">
+                                    <span>Expense:</span>
+                                    <span>Dinner</span>
+                                </div>
+                                <div class="parsed-item">
+                                    <span>Amount:</span>
+                                    <span>₹1500</span>
+                                </div>
+                                <div class="parsed-item">
+                                    <span>Split:</span>
+                                    <span>Equal between 3 people</span>
+                                </div>
+                                <div class="parsed-item">
+                                    <span>Members:</span>
+                                    <span>You, Harini, Savi</span>
+                                </div>
+                            </div>
+                            <p style="margin-top: 12px; font-size: 14px;">Ready to save?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="chat-input-area">
+                    <div class="input-group">
+                        <input type="text" placeholder="Tell me about your expense..." class="chat-input">
+                        <button class="btn-icon btn-send">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <button class="btn btn-voice">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VOICE INPUT SCREEN -->
+    <div id="voice-input-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <button class="btn-icon" onclick="showScreen('ai-assistant-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Voice Input</h2>
+                <div></div>
+            </div>
+
+            <div class="voice-container">
+                <div class="voice-indicator">
+                    <div class="microphone-animation">
+                        <div class="mic-wave"></div>
+                        <div class="mic-wave"></div>
+                        <div class="mic-wave"></div>
+                    </div>
+                    <i class="fas fa-microphone voice-mic"></i>
+                </div>
+
+                <p class="listening-text">Listening...</p>
+
+                <div class="voice-transcript">
+                    <p>Paid 1500 for dinner with Harini and Savi at the beach</p>
+                </div>
+
+                <div class="voice-actions">
+                    <button class="btn btn-secondary" onclick="showScreen('ai-assistant-screen')">Cancel</button>
+                    <button class="btn btn-primary" onclick="showScreen('ai-assistant-screen')">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RECEIPT SCANNER SCREEN -->
+    <div id="receipt-scanner-screen" class="screen">
+        <div class="app-container">
+            <div class="screen-header">
+                <button class="btn-icon" onclick="showScreen('add-expense-screen')">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Scan Receipt</h2>
+                <div></div>
+            </div>
+
+            <div class="scanner-container">
+                <div class="camera-area">
+                    <i class="fas fa-camera"></i>
+                    <p>Point camera at receipt</p>
+                </div>
+
+                <div class="scanner-controls">
+                    <button class="btn btn-icon">
+                        <i class="fas fa-flash"></i>
+                    </button>
+                    <button class="btn-capture">
+                        <i class="fas fa-circle"></i>
+                    </button>
+                    <button class="btn btn-icon">
+                        <i class="fas fa-image"></i>
+                    </button>
+                </div>
+
+                <!-- Scanned Receipt Preview -->
+                <div class="receipt-preview">
+                    <h3>Marina Bay Restaurant</h3>
+                    <div class="receipt-items">
+                        <div class="receipt-line">
+                            <span>Biryani x2</span>
+                            <span>₹650</span>
+                        </div>
+                        <div class="receipt-line">
+                            <span>Drinks x3</span>
+                            <span>₹450</span>
+                        </div>
+                        <div class="receipt-line">
+                            <span>Dessert</span>
+                            <span>₹200</span>
+                        </div>
+                        <div class="receipt-line">
+                            <span>Tax</span>
+                            <span>₹100</span>
+                        </div>
+                    </div>
+                    <div class="receipt-total">
+                        <div class="total-label">Total</div>
+                        <div class="total-amount">₹1,400</div>
+                    </div>
+                    <button class="btn btn-primary btn-large">Use This Receipt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <div class="bottom-nav">
+        <button class="nav-item active" onclick="showScreen('home-screen')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </button>
+        <button class="nav-item" onclick="showScreen('friends-screen')">
+            <i class="fas fa-user-friends"></i>
+            <span>Friends</span>
+        </button>
+        <button class="nav-item" onclick="showScreen('groups-screen')">
+            <i class="fas fa-users"></i>
+            <span>Groups</span>
+        </button>
+        <button class="nav-item" onclick="showScreen('add-expense-screen')">
+            <i class="fas fa-wallet"></i>
+            <span>Expenses</span>
+        </button>
+        <button class="nav-item" onclick="showScreen('analytics-screen')">
+            <i class="fas fa-chart-bar"></i>
+            <span>Analytics</span>
+        </button>
+        <button class="nav-item" onclick="showScreen('profile-screen')">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </button>
+    </div>
+
+    <!-- FLOATING ACTION BUTTON (AI Assistant) -->
+    <button class="fab" onclick="showScreen('ai-assistant-screen')">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
